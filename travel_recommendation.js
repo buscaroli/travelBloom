@@ -18,22 +18,17 @@ function keywordSearch() {
         case("beach"):
         case("beaches"):
             getData("beaches", false)
-            // clearInput()
             break
         case("country"):
         case("countries"):
             getData("countries", true)
-            // clearInput()
             break
         case("temple"):
         case("temples"):
             getData("temples", false)
-            // clearInput()
             break
         default:
-            // get404()
-            // clearInput()
-            // break
+            break
     }
 }
 
@@ -160,3 +155,4 @@ function destroyList() {
     }
     searchbarInput.value = ""
 }
+
