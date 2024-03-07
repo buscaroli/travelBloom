@@ -3,6 +3,8 @@
 ## What
 A pretend-website to look for holiday spots.
 
+![Screenshot of main page](./screenshots/travelBloom-screenshot.png)
+
 ## Why 
 It was the final project of the Javascript course (course number 4 of 11) from IBM's Backend JS Certification hosted on Coursera.
 
