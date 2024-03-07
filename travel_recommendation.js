@@ -41,4 +41,6 @@ const searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', keywordSearch)
 
 const searchbarInput = document.getElementById('searchbarInput')
-
+searchbarInput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') keywordSearch()
+})
