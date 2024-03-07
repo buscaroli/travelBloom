@@ -178,6 +178,11 @@ aside > a > img {
     font-size: 1.4rem;
 }
 
+@media(max-width: 700px) {
+    .booknowBtn {
+        height: 3rem;
+    }
+}
 
 /* ABOUT_US PAGE */ 
 
