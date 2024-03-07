@@ -188,6 +188,26 @@ aside > a > img {
     }
 }
 
+.resultList {
+    position: absolute;
+    top: 90px;
+    right: 5px;
+    /* width: max(20vw, 200px); */ 
+    width: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 15px;
+    
+    visibility: hidden; /* js toggle */
+}
+
 /* ABOUT_US PAGE */ 
 
 .aboutContainer {
@@ -298,6 +318,51 @@ aside > a > img {
     border-bottom-right-radius: 10px
 
 }
+
+.destinationCard {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border: none;
+    border-radius: 10px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+
+.destinationName {
+    background-color: rgba(82, 98, 188, 0.2);
+    align-self: stretch;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.destinationImg {
+    width: 100%;
+    height: auto;
+}
+
+.destinationDesc {
+    height: 50%;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+}
+
+.destinationBtn {
+    background-color: rgba(82, 98, 188, 0.2);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px
+
+}
+
+
 
 @media(max-width: 700px) {
     .teamContainer {
