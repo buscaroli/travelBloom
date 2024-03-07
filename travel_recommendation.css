@@ -185,15 +185,14 @@ aside > a > img {
     height: 100%;
     width: calc(100vw - 60px);
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     background-color: rgba(00,00,00,0.6);
 } 
 
 .aboutTitle {
-    background-color: lightblue;
     grid-column-start: 2;
-    grid-column-end: 11;
+    grid-column-end: 12;
     grid-row-start: 2;
     grid-row-end: 3;
     font-size: 4.7rem;
@@ -205,29 +204,107 @@ aside > a > img {
 }
 
 .aboutDescription {
-    background-color: pink;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
     grid-column-start: 2;
-    grid-column-end: 11;
+    grid-column-end: 12;
     grid-row-start: 4;
-    grid-row-end: 7;
+    grid-row-end: 8;
     font-size: 1.3rem;
     letter-spacing: 2px;
     line-height: 1.3rem;
     font-family: "Cormorant Garamond", serif;
     font-weight: 400;
     font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .teamContainer {
-    background-color: yellow;
     grid-column-start: 3;
-    grid-column-end: 11;
+    grid-column-end: 12;
     grid-row-start: 9;
     grid-row-end: 11;
-    font-size: 1.2rem;
-    font-weight: bolder;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.teamV {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.teamH {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 5px;
+}
+
+.teamCard {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border: none;
+    border-radius: 10px;
     font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+
+.teamName {
+    background-color: rgba(82, 98, 188, 0.2);
+    align-self: stretch;
+    font-size: 1.2rem;
     font-weight: 600;
-    font-style: normal;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px
+}
+
+.teamDesc {
+    height: 50%;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+}
+
+.teamRole {
+    background-color: rgba(82, 98, 188, 0.2);
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px
 
 }
+
+@media(max-width: 700px) {
+    .teamContainer {
+        grid-column-start: 2;
+        grid-column-end: 12;
+        grid-row-start: 9;
+        grid-row-end: 11;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .teamV h2 {
+        font-size: 1.8rem;
+}
+
+
+
