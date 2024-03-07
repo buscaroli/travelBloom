@@ -1,6 +1,6 @@
 const dataSource = './travel_recommendation_api.json'
 
-function getData((keyword, hasSubArray) {
+function getData(keyword, hasSubArray) {
         fetch(dataSource)
         .then(data => data.json())
         .then(destinations => {
@@ -58,23 +58,34 @@ function generateList(list, hasSubArray) {
     }
 
     if (hasSubArray) { // country
-
-    } else { // either beach or temple
         for (item of list) {
+            const countryName = item.name 
+
+            for (city of item.cities) {
+                const data = {
+                    name: city.name + ' - ' + countryName,
+                    img: city.imageUrl,
+                    description: city.description
+                }
+
             let newCard = document.createElement('div')
             newCard.className = 'destinationCard'
-            
+
             let newDestName = document.createElement('div')
             newDestName.className = 'destinationName'
+            newDestName.textContent = data.name
 
             let newDestImg = document.createElement('img')
-            newDestImg.className = 'destinationImg')
+            newDestImg.className = 'destinationImg'
+            newDestImg.setAttribute('src', data.img)
 
             let newDestDesc = document.createElement('img')
             newDestDesc.className = 'destinationDesc'
+            newDestDesc.textContent = data.description
 
             let newDestBtn = document.createElement('button')
             newDestBtn.className = 'destinationBtn'
+            newDestBtn.textContent = 'Visit'
 
             newCard.append(newDestName)
             newCard.append(newDestImg)
@@ -82,11 +93,53 @@ function generateList(list, hasSubArray) {
             newCard.append(newDestBtn)
             listElem.append(newCard)
 
+            document.appendChild(listElem)
+
+            listElem.classList.toggle('visibility')
+            }
+        }
+    } else { // either beach or temple
+        for (city of list) {
+            const data = {
+                name: city.name ,
+                img: city.imageUrl,
+                description: city.description
+            } 
+
+            let newCard = document.createElement('div')
+            newCard.className = 'destinationCard'
+
+            let newDestName = document.createElement('div')
+            newDestName.className = 'destinationName'
+            newDestName.textContent = data.name
+
+            let newDestImg = document.createElement('img')
+            newDestImg.className = 'destinationImg'
+            newDestImg.setAttribute('src', data.img)
+
+            let newDestDesc = document.createElement('img')
+            newDestDesc.className = 'destinationDesc'
+            newDestDesc.textContent = data.description
+
+            let newDestBtn = document.createElement('button')
+            newDestBtn.className = 'destinationBtn'
+            newDestBtn.textContent = 'Visit'
+
+            newCard.append(newDestName)
+            newCard.append(newDestImg)
+            newCard.append(newDestDesc)
+            newCard.append(newDestBtn)
+            listElem.append(newCard)
+
+            document.append(listElem)
+
             listElem.classList.toggle('visibility')
         }
     }
-
+     
 }
+
+
 
 function destroyList() {
     const listCreated = document.getElementsByClass('listElem')
