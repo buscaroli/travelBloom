@@ -57,9 +57,33 @@ a {
     text-transform: uppercase;
 }
 
-#searchbarContainer {
-
+#searchbarInput {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    color: white;
+    padding-left: 5px;
+    background-color: inherit;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 2px 5px
 }
+
+.searchBtn, .clearBtn {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    letter-spacing: 1.2px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 2px 5px;
+} 
+
+.searchBtn:hover, .clearBtn:hover {
+    cursor: pointer;
+}
+
 
 main {
     height: calc(100vh - 80px);
@@ -121,11 +145,12 @@ aside > a > img {
     grid-column-end: 5;
     grid-row-start: 6;
     grid-row-end: 9;
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    line-height: 1.3rem;
     font-family: "Cormorant Garamond", serif;
     font-weight: 400;
-    font-style: normal;
+    font-style: italic;
 
 }
 
