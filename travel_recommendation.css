@@ -402,6 +402,10 @@ aside > a > img {
     padding-left: 5px;
 }
 
+.submitBtn:hover {
+    cursor: pointer;
+}
+
 @media(max-width: 700px) {
     .contactsTitle {
         grid-column-start: 1;
