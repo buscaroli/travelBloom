@@ -4,7 +4,7 @@ function getData(keyword, hasSubArray) {
         fetch(dataSource)
         .then(data => data.json())
         .then(destinations => {
-            generateList(destinations[keyword])
+            generateList(destinations[keyword], hasSubArray)
             })  
             .catch(e => console.log(`Error: ${e}`))
 }
@@ -40,12 +40,17 @@ function keywordSearch() {
 const searchBtn = document.getElementById('searchBtn')
 searchBtn.addEventListener('click', keywordSearch)
 
+const clearBtn = document.getElementById('clearBtn')
+clearBtn.addEventListener('click', destroyList)
+
 const searchbarInput = document.getElementById('searchbarInput')
 searchbarInput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') keywordSearch()
 })
 
 function generateList(list, hasSubArray) {
+    destroyList()
+
     const listElem = document.createElement('div')
     listElem.className = 'resultList'
     
@@ -58,44 +63,50 @@ function generateList(list, hasSubArray) {
     }
 
     if (hasSubArray) { // country
-        for (item of list) {
-            const countryName = item.name 
+        for (country of list) {
+            console.log('& & & ', country)
+            let cityList = country.cities
+            console.log('^ ^ ^ ', cityList)
 
-            for (city of item.cities) {
+            for (city of cityList) {
                 const data = {
-                    name: city.name + ' - ' + countryName,
+                    name: city.name, 
                     img: city.imageUrl,
                     description: city.description
                 }
+                console.log('--> ', data) 
 
-            let newCard = document.createElement('div')
-            newCard.className = 'destinationCard'
+                let newCard = document.createElement('div')
+                newCard.className = 'destinationCard'
 
-            let newDestName = document.createElement('div')
-            newDestName.className = 'destinationName'
-            newDestName.textContent = data.name
+                let newDestName = document.createElement('div')
+                newDestName.className = 'destinationName'
+                newDestName.textContent = data.name
+                newDestName.style.color = 'white'
 
-            let newDestImg = document.createElement('img')
-            newDestImg.className = 'destinationImg'
-            newDestImg.setAttribute('src', data.img)
+                let newDestImg = document.createElement('img')
+                newDestImg.className = 'destinationImg'
+                newDestImg.setAttribute('src', data.img)
 
-            let newDestDesc = document.createElement('img')
-            newDestDesc.className = 'destinationDesc'
-            newDestDesc.textContent = data.description
+                let newDestDesc = document.createElement('img')
+                newDestDesc.className = 'destinationDesc'
+                newDestDesc.textContent = data.description
+                newDestDesc.style.color = 'white'
 
-            let newDestBtn = document.createElement('button')
-            newDestBtn.className = 'destinationBtn'
-            newDestBtn.textContent = 'Visit'
+                let newDestBtn = document.createElement('button')
+                newDestBtn.className = 'destinationBtn'
+                newDestBtn.textContent = 'Visit'
+                newDestBtn.style.color = 'white'
 
-            newCard.append(newDestName)
-            newCard.append(newDestImg)
-            newCard.append(newDestDesc)
-            newCard.append(newDestBtn)
-            listElem.append(newCard)
+                newCard.append(newDestName)
+                newCard.append(newDestImg)
+                newCard.append(newDestDesc)
+                newCard.append(newDestBtn)
+                listElem.append(newCard)
 
-            document.appendChild(listElem)
+                document.body.appendChild(listElem)
 
-            listElem.classList.toggle('visibility')
+                listElem.style.visibility = 'visible'
             }
         }
     } else { // either beach or temple
@@ -103,7 +114,7 @@ function generateList(list, hasSubArray) {
             const data = {
                 name: city.name ,
                 img: city.imageUrl,
-                description: city.description
+                description: `<p>${city.description}</p>`
             } 
 
             let newCard = document.createElement('div')
@@ -112,6 +123,7 @@ function generateList(list, hasSubArray) {
             let newDestName = document.createElement('div')
             newDestName.className = 'destinationName'
             newDestName.textContent = data.name
+            newDestName.style.color = 'white'
 
             let newDestImg = document.createElement('img')
             newDestImg.className = 'destinationImg'
@@ -119,11 +131,13 @@ function generateList(list, hasSubArray) {
 
             let newDestDesc = document.createElement('img')
             newDestDesc.className = 'destinationDesc'
-            newDestDesc.textContent = data.description
+            newDestDesc.innerHTML = data.description
+            newDestDesc.style.color = 'white'
 
             let newDestBtn = document.createElement('button')
             newDestBtn.className = 'destinationBtn'
             newDestBtn.textContent = 'Visit'
+            newDestBtn.style.color = 'white'
 
             newCard.append(newDestName)
             newCard.append(newDestImg)
@@ -131,9 +145,9 @@ function generateList(list, hasSubArray) {
             newCard.append(newDestBtn)
             listElem.append(newCard)
 
-            document.append(listElem)
+            document.body.append(listElem)
 
-            listElem.classList.toggle('visibility')
+            listElem.style.visibility = 'visible'
         }
     }
      
@@ -142,7 +156,7 @@ function generateList(list, hasSubArray) {
 
 
 function destroyList() {
-    const listCreated = document.getElementsByClass('listElem')
+    const listCreated = document.getElementsByClassName('resultList')
     if (listCreated.length > 0) {
         listCreated[0].remove()
     }
