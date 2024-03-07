@@ -88,7 +88,7 @@ function generateList(list, hasSubArray) {
                 newDestImg.className = 'destinationImg'
                 newDestImg.setAttribute('src', data.img)
 
-                let newDestDesc = document.createElement('img')
+                let newDestDesc = document.createElement('div')
                 newDestDesc.className = 'destinationDesc'
                 newDestDesc.textContent = data.description
                 newDestDesc.style.color = 'white'
@@ -129,7 +129,7 @@ function generateList(list, hasSubArray) {
             newDestImg.className = 'destinationImg'
             newDestImg.setAttribute('src', data.img)
 
-            let newDestDesc = document.createElement('img')
+            let newDestDesc = document.createElement('div')
             newDestDesc.className = 'destinationDesc'
             newDestDesc.innerHTML = data.description
             newDestDesc.style.color = 'white'
@@ -153,11 +153,10 @@ function generateList(list, hasSubArray) {
      
 }
 
-
-
 function destroyList() {
     const listCreated = document.getElementsByClassName('resultList')
     if (listCreated.length > 0) {
         listCreated[0].remove()
     }
+    searchbarInput.value = ""
 }
